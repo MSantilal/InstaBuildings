@@ -1,0 +1,9 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+	<!-- Insert items and images which you can call from the Strings.XML file -->
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:showAsAction="never" 
+        android:title="@string/action_settings"/>
+
+</menu>
