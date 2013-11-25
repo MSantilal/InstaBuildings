@@ -30,6 +30,7 @@ public class MainActivity extends Activity
 
 	// used to store app title
 	private CharSequence mTitle;
+	private CharSequence mSubtitle = "InstaBuildings";
 
 	// slide menu items
 	private String[] navMenuTitles;
@@ -45,6 +46,7 @@ public class MainActivity extends Activity
 		setContentView(R.layout.activity_main);
 		
 		mTitle = mDrawerTitle = getTitle();
+		
 		 
         // load slide menu items
         navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items);
@@ -86,6 +88,7 @@ public class MainActivity extends Activity
         // enabling action bar app icon and behaving it as toggle button
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
+    
  
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
                 R.drawable.ic_drawer, //nav menu toggle icon
@@ -155,7 +158,7 @@ public class MainActivity extends Activity
 		case R.id.account:
 			accountSettings();
 			break;
-		case R.id.action_settings:
+		case R.id.settings:
 			appSettings();
 			break;
 		}
@@ -164,9 +167,12 @@ public class MainActivity extends Activity
 	}
 
 	public boolean onPrepareOptionsMenu(Menu menu) {
-		// if nav drawer is opened, hide the action items
+		// if nav drawer is opened, hide the following items
 		boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-		menu.findItem(R.id.action_settings).setVisible(!drawerOpen);
+		menu.findItem(R.id.notification_bulb).setVisible(!drawerOpen); //when navbar is open hide notifications
+		menu.findItem(R.id.new_post).setVisible(!drawerOpen); //when navbar is open hide notifications
+		menu.findItem(R.id.account).setVisible(!drawerOpen); //when navbar is open hide notifications
+			
 		return super.onPrepareOptionsMenu(menu);
 	}
 	
