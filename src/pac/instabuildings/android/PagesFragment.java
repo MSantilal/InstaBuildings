@@ -1,4 +1,4 @@
-package pac.grproject.android_instabuildings;
+package pac.instabuildings.android;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -6,15 +6,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class CommunityFragment extends Fragment {
+public class PagesFragment extends Fragment {
 	
-	public CommunityFragment(){}
+	public PagesFragment(){}
 	
 	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
  
-        View rootView = inflater.inflate(R.layout.fragment_community, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_pages, container, false);
          
         return rootView;
     }

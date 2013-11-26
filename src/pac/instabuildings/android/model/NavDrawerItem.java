@@ -1,4 +1,4 @@
-package pac.grproject.android_instabuildings.model;
+package pac.instabuildings.android.model;
  
 public class NavDrawerItem {
      

@@ -1,7 +1,7 @@
-package pac.grproject.android_instabuildings.adapter;
+package pac.instabuildings.android.adapter;
 
-import pac.grproject.android_instabuildings.R;
-import pac.grproject.android_instabuildings.model.NavDrawerItem;
+import pac.instabuildings.android.R;
+import pac.instabuildings.android.model.NavDrawerItem;
  
 import java.util.ArrayList;
  

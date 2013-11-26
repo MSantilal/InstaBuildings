@@ -1,4 +1,4 @@
-package pac.grproject.android_instabuildings;
+package pac.instabuildings.android;
 
 import android.app.Fragment;
 import android.os.Bundle;

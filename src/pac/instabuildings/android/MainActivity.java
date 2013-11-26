@@ -1,9 +1,9 @@
-package pac.grproject.android_instabuildings;
+package pac.instabuildings.android;
 
 import java.util.ArrayList;
 
-import pac.grproject.android_instabuildings.adapter.NavDrawerListAdapter;
-import pac.grproject.android_instabuildings.model.NavDrawerItem;
+import pac.instabuildings.android.adapter.NavDrawerListAdapter;
+import pac.instabuildings.android.model.NavDrawerItem;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.Fragment;
@@ -30,7 +30,7 @@ public class MainActivity extends Activity
 
 	// used to store app title
 	private CharSequence mTitle;
-	private CharSequence mSubtitle = "InstaBuildings";
+	
 
 	// slide menu items
 	private String[] navMenuTitles;
