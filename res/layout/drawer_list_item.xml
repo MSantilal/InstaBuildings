@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="48dp">
+    android:layout_height="48dp"
+    android:background="@drawable/list_selector">
  
     <ImageView
         android:id="@+id/icon"
@@ -21,6 +22,7 @@
         android:layout_toRightOf="@id/icon"
         android:minHeight="?android:attr/listPreferredItemHeightSmall"
         android:textAppearance="?android:attr/textAppearanceListItemSmall"
+        android:textColor="@color/list_item_title"
         android:gravity="center_vertical"
         android:paddingRight="40dp"/>
      
@@ -29,7 +31,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
+        android:background="@drawable/counter_bg"
         android:layout_marginRight="8dp"
+        android:textColor="@color/counter_text_color"
        />
  
 </RelativeLayout>
