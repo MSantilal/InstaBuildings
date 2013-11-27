@@ -5,12 +5,16 @@ import java.util.ArrayList;
 import pac.instabuildings.android.adapter.NavDrawerListAdapter;
 import pac.instabuildings.android.model.NavDrawerItem;
 import android.os.Bundle;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.Menu;
@@ -31,7 +35,7 @@ public class MainActivity extends Activity
 	// used to store app title
 	private CharSequence mTitle;
 	
-
+	
 	// slide menu items
 	private String[] navMenuTitles;
 	private TypedArray navMenuIcons;
@@ -46,14 +50,12 @@ public class MainActivity extends Activity
 		setContentView(R.layout.activity_main);
 		
 		mTitle = mDrawerTitle = getTitle();
-		
-		 
+				 
         // load slide menu items
         navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items);
  
         // nav drawer icons from resources
-        navMenuIcons = getResources()
-                .obtainTypedArray(R.array.nav_drawer_icons);
+        navMenuIcons = getResources().obtainTypedArray(R.array.nav_drawer_icons);
  
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.list_slidermenu);
@@ -69,10 +71,10 @@ public class MainActivity extends Activity
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons.getResourceId(2, -1)));
         // Communities, Will add a counter here
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons.getResourceId(3, -1), true, "22"));
-        // Pages
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons.getResourceId(4, -1)));
-        // What's hot, We  will add a counter here
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons.getResourceId(5, -1), true, "50+"));
+//        // Pages
+//        navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons.getResourceId(4, -1)));
+//        // What's hot, We  will add a counter here
+//        navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons.getResourceId(5, -1), true, "50+"));
          
  
         // Recycle the typed array
@@ -108,7 +110,7 @@ public class MainActivity extends Activity
             }
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
- 
+        
         if (savedInstanceState == null) {
             // on first time display view for first nav item
             displayView(0);
@@ -181,22 +183,16 @@ public class MainActivity extends Activity
 		Fragment fragment = null;
 		switch (position) {
 		case 0:
-			fragment = new HomeFragment();
+			fragment = new Home();
 			break;
 		case 1:
-			fragment = new FindPeopleFragment();
+			fragment = new Your_Projects();
 			break;
 		case 2:
-			fragment = new PhotosFragment();
+			fragment = new Starred_Projects();
 			break;
 		case 3:
-			fragment = new CommunityFragment();
-			break;
-		case 4:
-			fragment = new PagesFragment();
-			break;
-		case 5:
-			fragment = new WhatsHotFragment();
+			fragment = new Trending_Area();
 			break;
 
 		default:
@@ -239,6 +235,8 @@ public class MainActivity extends Activity
         mDrawerToggle.onConfigurationChanged(newConfig);
     }
 	
+    //---------------------- ActionBar actions --------------------//
+        
 	public void openNotifications()
 	//Method used to inform users of their new notifications
 	{
@@ -268,4 +266,8 @@ public class MainActivity extends Activity
 	{
 		//Insert system settings code here code here
 	}
+
+	//---------------------- ActionBar actions --------------------//
+
 }
+

@@ -13,11 +13,10 @@
     <!-- Nav Drawer Menu Items //The names -->
     <string-array name="nav_drawer_items">
         <item>Home</item>
-        <item>Find People</item>
-        <item>Photos</item>
-        <item>Communities</item>
-        <item>Pages</item>
-        <item>What\'s Hot</item>
+        <item>Your Projects</item>
+        <item>Starred Projects</item>
+        <item>Trending Near You</item>
+
     </string-array>
    
      <!-- Nav Drawer List Item Icons //The Icons -->
@@ -27,8 +26,6 @@
         <item>@drawable/ic_people</item>
         <item>@drawable/ic_photos</item>
         <item>@drawable/ic_communities</item>
-        <item>@drawable/ic_pages</item>
-        <item>@drawable/ic_whats_hot</item>
     </array>
     
     <!-- Content Description -->
