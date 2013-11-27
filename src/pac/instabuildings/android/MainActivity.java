@@ -9,6 +9,7 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.graphics.Color;
@@ -21,6 +22,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 
 public class MainActivity extends Activity 
@@ -115,6 +117,8 @@ public class MainActivity extends Activity
             // on first time display view for first nav item
             displayView(0);
         }
+        
+        
     }
  
     /**
@@ -163,9 +167,13 @@ public class MainActivity extends Activity
 		case R.id.settings:
 			appSettings();
 			break;
+		case R.id.a_post:
+			checkPost();
+			break;
 		}
 		return super.onOptionsItemSelected(item);
 		
+	
 	}
 
 	public boolean onPrepareOptionsMenu(Menu menu) {
@@ -253,6 +261,22 @@ public class MainActivity extends Activity
 	//Method used to create new posts for the "InstaBuildings" network
 	{
 		//Insert new post code here
+	}
+	
+	public void checkPost()
+	{
+		View tafs = inflater.inflate(R.layout.activity_review_post,container,false);
+		Button test = (Button) activity_main.findViewById(R.id.a_post);
+		test.setOnClickListener(new View.OnClickListener() 
+		{
+			@Override
+			public void onClick(View v) {
+				Intent myIntent = new Intent(MainActivity.this, ReviewPost.class);
+				startActivity(myIntent);
+			}
+		});
+		
+		
 	}
 	
 	public void accountSettings()

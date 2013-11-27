@@ -1,6 +1,7 @@
 package pac.instabuildings.android;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +16,10 @@ public class Trending_Area extends Fragment {
             Bundle savedInstanceState) {
  
         View rootView = inflater.inflate(R.layout.fragment_trending_area, container, false);
-         
+
         return rootView;
     }
+
+
+
 }

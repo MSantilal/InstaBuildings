@@ -22,6 +22,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="pac.instabuildings.android.ReviewPost"
+            android:label="@string/title_activity_review_post" >
+        </activity>
     </application>
 
 </manifest>
