@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import pac.instabuildings.android.adapter.NavDrawerListAdapter;
 import pac.instabuildings.android.model.NavDrawerItem;
+import android.R.color;
 import android.os.Bundle;
 import android.app.ActionBar;
 import android.app.Activity;
@@ -92,8 +93,9 @@ public class MainActivity extends Activity
         // enabling action bar app icon and behaving it as toggle button
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
-    
- 
+        getActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.actionbar_background)); //colour of actionbar
+        
+        
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
                 R.drawable.ic_drawer, //nav menu toggle icon
                 R.string.app_name, // nav drawer open - description for accessibility
@@ -265,18 +267,7 @@ public class MainActivity extends Activity
 	
 	public void checkPost()
 	{
-		View tafs = inflater.inflate(R.layout.activity_review_post,container,false);
-		Button test = (Button) activity_main.findViewById(R.id.a_post);
-		test.setOnClickListener(new View.OnClickListener() 
-		{
-			@Override
-			public void onClick(View v) {
-				Intent myIntent = new Intent(MainActivity.this, ReviewPost.class);
-				startActivity(myIntent);
-			}
-		});
-		
-		
+	
 	}
 	
 	public void accountSettings()
