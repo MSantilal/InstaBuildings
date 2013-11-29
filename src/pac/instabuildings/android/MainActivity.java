@@ -160,7 +160,7 @@ public class MainActivity extends Activity
 		case R.drawable.ic_action_search:
 			openSearch();
 			break;
-		case R.drawable.ic_action_picture:
+		case R.id.new_post:
 			newPost();
 			break;
 		case R.id.account:
@@ -262,7 +262,8 @@ public class MainActivity extends Activity
 	public void newPost()
 	//Method used to create new posts for the "InstaBuildings" network
 	{
-		//Insert new post code here
+		Intent new_post = new Intent(this, NewPostActivity.class);
+		startActivity(new_post);
 	}
 	
 	public void checkPost()
