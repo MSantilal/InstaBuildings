@@ -169,9 +169,6 @@ public class MainActivity extends Activity
 		case R.id.settings:
 			appSettings();
 			break;
-		case R.id.a_post:
-			checkPost();
-			break;
 		}
 		return super.onOptionsItemSelected(item);
 		

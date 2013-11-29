@@ -13,13 +13,4 @@
         android:text="Trending Projects in your Area"
         android:textSize="16sp" />
 
-    <Button
-        android:id="@+id/a_post"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:onClick="fullPost"
-        android:text="@string/a_post" />
-
 </RelativeLayout>

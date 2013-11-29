@@ -23,11 +23,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="pac.instabuildings.android.ReviewPost"
-            android:label="@string/title_activity_review_post" >
-        </activity>
-        <activity
             android:name="pac.instabuildings.android.NewPostActivity"
+            android:parentActivityName="pac.instabuildings.android.MainActivity"
             android:label="@string/title_activity_new_post" >
         </activity>
     </application>

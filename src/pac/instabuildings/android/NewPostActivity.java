@@ -13,6 +13,7 @@ public class NewPostActivity extends Activity {
 		setContentView(R.layout.activity_new_post);
 		
 		Intent new_post = getIntent();
+		getActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.actionbar_background));
 	}
 	
 
