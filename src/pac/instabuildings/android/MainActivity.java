@@ -157,7 +157,7 @@ public class MainActivity extends Activity
 		case R.id.notification_bulb:
 			openNotifications();
 			break;
-		case R.drawable.ic_action_search:
+		case R.id.search:
 			openSearch();
 			break;
 		case R.id.new_post:
@@ -265,13 +265,15 @@ public class MainActivity extends Activity
 	public void accountSettings()
 	//Method used to access accounts for the user logged in
 	{
-		//Insert accounts setting code here code here
+		Intent accounts = new Intent(this, AccountActivity.class);
+		startActivity(accounts);
 	}
 	
 	public void appSettings()
 	//Method used to access system settings
 	{
-		//Insert system settings code here code here
+		Intent settings = new Intent(this, SettingsActivity.class);
+		startActivity(settings);
 	}
 
 	//---------------------- ActionBar actions --------------------//
