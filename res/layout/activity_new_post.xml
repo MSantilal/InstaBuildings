@@ -31,8 +31,7 @@
         android:ems="10"
         android:inputType="text"
         android:singleLine="true" >
-        
-        
+              
    
         <requestFocus />
     </EditText>

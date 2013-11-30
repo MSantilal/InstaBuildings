@@ -154,7 +154,7 @@ public class MainActivity extends Activity
 		}
 		switch (item.getItemId())
 		{
-		case R.drawable.ic_action_warning:
+		case R.id.notification_bulb:
 			openNotifications();
 			break;
 		case R.drawable.ic_action_search:
@@ -171,8 +171,6 @@ public class MainActivity extends Activity
 			break;
 		}
 		return super.onOptionsItemSelected(item);
-		
-	
 	}
 
 	public boolean onPrepareOptionsMenu(Menu menu) {
@@ -247,7 +245,8 @@ public class MainActivity extends Activity
 	public void openNotifications()
 	//Method used to inform users of their new notifications
 	{
-		//Insert Notification code here
+		Intent notifications = new Intent(this, NotificationActivity.class);
+		startActivity(notifications);
 	}
 	
 	public void openSearch()
@@ -261,11 +260,6 @@ public class MainActivity extends Activity
 	{
 		Intent new_post = new Intent(this, NewPostActivity.class);
 		startActivity(new_post);
-	}
-	
-	public void checkPost()
-	{
-	
 	}
 	
 	public void accountSettings()
