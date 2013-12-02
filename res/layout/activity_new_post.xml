@@ -13,13 +13,14 @@
 
     <Button
         android:id="@+id/button1"
-        android:layout_width="500dp"
+        android:layout_width="250dp"
         android:layout_height="200dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="45dp"
-        android:text="Select Image..." />
+        android:text="Select Image..."
+        android:onClick="launchGallery"/>
 
     <EditText
         android:id="@+id/editText1"
@@ -82,5 +83,14 @@
         android:layout_alignRight="@+id/textView2"
         android:text="Location"
         android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="250dp"
+        android:layout_height="200dp"
+        android:layout_alignBaseline="@+id/button1"
+        android:layout_alignBottom="@+id/button1"
+        android:layout_toRightOf="@+id/button1"
+        android:text="Camera" />
 
 </RelativeLayout>

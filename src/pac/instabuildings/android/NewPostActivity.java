@@ -1,21 +1,61 @@
 package pac.instabuildings.android;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.ImageView;
 
 public class NewPostActivity extends Activity {
-
+	
+	private static final int Select_Picture = 1;
+	Button gallery;
+	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_new_post);
 		getActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.actionbar_background));
 
+		gallery = (Button) findViewById(R.id.button1);
+		gallery.setOnClickListener(new OnClickListener() {
 		
+		public void onClick(View v)
+		{
+			Intent gallery = new Intent();
+			gallery.setType("image/*");
+			gallery.setAction(gallery.ACTION_GET_CONTENT);
+			startActivityForResult(gallery.createChooser(gallery, "Select Picture"), Select_Picture);
+		}
+	});
+		
+	}		
+	
+	protected void onActivityResult(int requestCode, int resultCode, Intent data)
+	{
+		super.onActivityResult(requestCode, resultCode, data);
+		switch(requestCode) 
+		{
+		case Select_Picture: // our request code
+			if(resultCode == Activity.RESULT_OK)
+			{ // result was ok
+				Uri selectedImage = data.getData();
+				Intent i = new Intent(getApplicationContext(),ImageView.class);
+				
+				i.putExtra("PICTURE_LOCATION", selectedImage.toString());
+				startActivity(i);
+			}
+		}
 	}
+	
+	@Override
+	
 	
 	public boolean onOptionsItemSelected (MenuItem item) 
 //	Method outlining what action will take place when a user
@@ -51,7 +91,7 @@ public class NewPostActivity extends Activity {
 	{
 		
 	}
-	
+		
 	public void accountSettings()
 	//Method used to access accounts for the user logged in
 	{

@@ -46,6 +46,6 @@
             android:name="pac.instabuildings.android.SearchActivity"
             android:label="@string/title_activity_search" >
         </activity>
-    </application>
+     </application>
 
 </manifest>
