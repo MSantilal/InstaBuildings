@@ -20,4 +20,5 @@
         android:divider="@color/list_divider"
         android:dividerHeight="1dp"       
         android:background="@color/list_background"/>
+ 
 </android.support.v4.widget.DrawerLayout>

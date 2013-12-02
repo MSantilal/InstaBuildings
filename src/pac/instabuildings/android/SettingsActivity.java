@@ -44,6 +44,10 @@ public class SettingsActivity extends PreferenceActivity {
 		super.onPostCreate(savedInstanceState);
 
 		setupSimplePreferencesScreen();
+		
+		 getActionBar().setDisplayHomeAsUpEnabled(true);
+	        getActionBar().setHomeButtonEnabled(true);
+	        getActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.actionbar_background)); //colour of actionbar
 	}
 
 	/**

@@ -36,6 +36,7 @@
     <string name="title_activity_new_post">New Post</string>
     <string name="title_activity_notification">Notifications</string>
     <string name="title_activity_accounts">Account</string>
-    
+    <string name="title_activity_search">SearchActivity</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>

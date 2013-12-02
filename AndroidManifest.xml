@@ -34,13 +34,17 @@
         </activity>
         <activity
             android:name="pac.instabuildings.android.AccountActivity"
-            android:label="@string/title_activity_accounts" 
+            android:label="@string/title_activity_accounts"
             android:parentActivityName="pac.instabuildings.android.MainActivity" >
         </activity>
         <activity
             android:name="pac.instabuildings.android.SettingsActivity"
-            android:label="@string/title_activity_settings" 
+            android:label="@string/title_activity_settings"
             android:parentActivityName="pac.instabuildings.android.MainActivity" >
+        </activity>
+        <activity
+            android:name="pac.instabuildings.android.SearchActivity"
+            android:label="@string/title_activity_search" >
         </activity>
     </application>
 

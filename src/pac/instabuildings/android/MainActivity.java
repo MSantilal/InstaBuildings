@@ -4,27 +4,29 @@ import java.util.ArrayList;
 
 import pac.instabuildings.android.adapter.NavDrawerListAdapter;
 import pac.instabuildings.android.model.NavDrawerItem;
-import android.R.color;
 import android.os.Bundle;
-import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
+
+
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.support.v4.app.ActionBarDrawerToggle;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
+import android.widget.SearchView;
+import android.widget.TextView;
 
 public class MainActivity extends Activity 
 {
@@ -37,8 +39,7 @@ public class MainActivity extends Activity
 
 	// used to store app title
 	private CharSequence mTitle;
-	
-	
+		
 	// slide menu items
 	private String[] navMenuTitles;
 	private TypedArray navMenuIcons;
@@ -51,6 +52,8 @@ public class MainActivity extends Activity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		
 		
 		mTitle = mDrawerTitle = getTitle();
 				 
@@ -141,7 +144,20 @@ public class MainActivity extends Activity
 	{
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
+		SearchView searchView = (SearchView) menu.findItem(R.id.search).getActionView();
+		SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+	   	if (null != searchManager)
+	    {
+	    	  searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+	    }
+	   	
+	   	int id = searchView.getContext().getResources().getIdentifier("android:id/search_src_text",null,null);
+	    TextView textView = (TextView) searchView.findViewById(id);
+	    textView.setHintTextColor(Color.WHITE);
+	    searchView.setIconifiedByDefault(true);
+	    searchView.setQueryHint("Search InstaBuildings");
+	    
+	    return super.onCreateOptionsMenu(menu);
 	}
 
 	public boolean onOptionsItemSelected (MenuItem item) 
