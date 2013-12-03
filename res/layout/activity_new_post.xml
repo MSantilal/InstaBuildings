@@ -11,6 +11,18 @@
 
    <!-- Stuff that be happenin' yo -->
 
+    <ImageView
+        android:id="@+id/result"
+        android:layout_width="250dp"
+        android:layout_height="200dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="45dp"
+        android:onClick="launchGallery" >
+
+    </ImageView>
+     
     <Button
         android:id="@+id/button1"
         android:layout_width="250dp"
@@ -21,7 +33,7 @@
         android:layout_marginTop="45dp"
         android:text="Select Image..."
         android:onClick="launchGallery"/>
-
+	
     <EditText
         android:id="@+id/editText1"
         android:layout_width="wrap_content"
@@ -32,8 +44,7 @@
         android:ems="10"
         android:inputType="text"
         android:singleLine="true" >
-              
-   
+
         <requestFocus />
     </EditText>
 
@@ -83,14 +94,26 @@
         android:layout_alignRight="@+id/textView2"
         android:text="Location"
         android:textAppearance="?android:attr/textAppearanceMedium" />
-
+         
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btCapturePicture"
         android:layout_width="250dp"
         android:layout_height="200dp"
         android:layout_alignBaseline="@+id/button1"
         android:layout_alignBottom="@+id/button1"
         android:layout_toRightOf="@+id/button1"
-        android:text="Camera" />
+        android:text="Camera" 
+        />
+    
+    <ImageView
+        android:id="@+id/imgPreview"
+      	android:layout_width="243dp"
+        android:layout_height="220dp"
+     	android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="33dp"
+        android:layout_marginTop="35dp"
+        android:visibility="gone"/>"
 
+    
 </RelativeLayout>
