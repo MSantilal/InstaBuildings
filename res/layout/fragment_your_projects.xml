@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:textSize="16dp"
-        android:text="Find People View"/>
+        android:text="Your Projects"/>
     
     <ImageView android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -18,5 +18,18 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"/>
     
+     <Button
+        android:id="@+id/button"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button" />
+     
+     <TextView
+        android:id="@+id/outputTxt"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#CC0033"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
 </RelativeLayout>

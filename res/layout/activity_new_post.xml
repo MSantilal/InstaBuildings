@@ -33,7 +33,7 @@
         android:layout_marginTop="45dp"
         android:text="Select Image..."
         android:onClick="launchGallery"/>
-	
+        
     <EditText
         android:id="@+id/editText1"
         android:layout_width="wrap_content"
@@ -75,25 +75,6 @@
         android:layout_toLeftOf="@+id/editText2"
         android:text="Description"
         android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText2"
-        android:layout_alignRight="@+id/editText2"
-        android:layout_below="@+id/editText2"
-        android:layout_marginTop="21dp"
-        android:text="Set Location" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/button2"
-        android:layout_alignRight="@+id/textView2"
-        android:text="Location"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
          
     <Button
         android:id="@+id/btCapturePicture"
@@ -107,13 +88,53 @@
     
     <ImageView
         android:id="@+id/imgPreview"
-      	android:layout_width="243dp"
+              android:layout_width="243dp"
         android:layout_height="220dp"
-     	android:layout_alignParentRight="true"
+             android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_marginRight="33dp"
         android:layout_marginTop="35dp"
-        android:visibility="gone"/>"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editText2"
+        android:layout_alignRight="@+id/editText2"
+        android:layout_below="@+id/editText2"
+        android:layout_marginTop="86dp"
+        android:text="Set Location" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/button2"
+        android:layout_alignRight="@+id/textView2"
+        android:text="Location"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText2"
+        android:layout_marginTop="39dp"
+        android:layout_toLeftOf="@+id/button2"
+        android:text="Number of People"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView4"
+        android:layout_alignBottom="@+id/textView4"
+        android:layout_centerHorizontal="true"
+        android:ems="10" />
+
+"
 
     
 </RelativeLayout>

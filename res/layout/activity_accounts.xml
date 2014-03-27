@@ -8,36 +8,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".AccountActivity" >
 
-    <TableLayout
-        android:layout_width="1000dp"
-        android:layout_height="500dp"
-        android:layout_centerHorizontal="true" >
-
-        <TableRow
-            android:id="@+id/tableRow1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/tableRow2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/tableRow3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/tableRow4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-        </TableRow>
-
-
-    </TableLayout>
+  
 
 </RelativeLayout>

@@ -28,16 +28,23 @@ import android.widget.Toast;
 
 public class NewPostActivity extends Activity {
 	
+	//Sets the request code for the camera to capture image
 	private static final int CAMERA_CAPTURE_IMAGE_REQUEST_CODE = 100;
+	//request code for the application to access the gallery
 	private static final int Select_Picture = 1;
+	//set the input and output of the media type
 	private static final int MEDIA_TYPE_IMAGE = 1;
+	//Declares the class ImageView for latter use to access gallery
 	ImageView gallery;
+	//Declares the class ImageView for latter use to allow the gallery to display the image selected.
 	private ImageView imageView;
+	//set file type
 	private Bitmap bitmap;
 	//image output folder
 	private static final String IMAGE_DIRECTORY_NAME = "InstaBuildings";
-	private Uri fileUri; //url to store store image
+	private Uri fileUri; //file directory url to store store image
 	private ImageView imgPreview;
+	//Button to initiate camera
 	private Button btnCapturePicture;
 	
 	@Override
@@ -46,6 +53,7 @@ public class NewPostActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_new_post);
 		getActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.actionbar_background));
+		//ImageView of Gallery to listen for the user input and open gallery, which then allows the user to select and display the photo
 		gallery = (ImageView) findViewById(R.id.result);
 		gallery.setOnClickListener(new OnClickListener() {
 		
@@ -58,8 +66,10 @@ public class NewPostActivity extends Activity {
 		}
 	});
 		imageView = (ImageView) findViewById(R.id.result);
+		//Brings the selected image to front.
 		imageView.bringToFront();
 		
+		//ImageView of Camera to listen for the user input and open the camera, which then allows the user to take and display the photo
 		imgPreview = (ImageView) findViewById(R.id.imgPreview);
 		btnCapturePicture = (Button) findViewById(R.id.btCapturePicture);
 		btnCapturePicture.setOnClickListener(new View.OnClickListener() 
@@ -67,45 +77,49 @@ public class NewPostActivity extends Activity {
 			@Override
 			public void onClick(View v) 
 			{
-				// TODO Auto-generated method stub
+				//calls the method to start the intent of the camera
 				captureImage();
 			}
 		});
-		
 
-		
-		
 	}		
 
 	public void pickImage (View View)
 	{
+		//Select image intent method.
+		
 		Intent intent = new Intent();
 		intent.setType("image/*");
 		intent.setAction(Intent.ACTION_GET_CONTENT);
 		intent.addCategory(Intent.CATEGORY_OPENABLE);
 		startActivityForResult(intent,Select_Picture);
 		
+		
 	}
 	
 	protected void onActivityResult(int requestCode, int resultCode, Intent data)
 	{
 		super.onActivityResult(requestCode, resultCode, data);
+		//if the SELECT_PICTURE and RESULT are the same then the application has the goahead to go into the gallery
+		//else it doesn't allow the application and fails.
 		if (requestCode == Select_Picture && resultCode == Activity.RESULT_OK)
 		{
 			try 
 			{
 				if (bitmap != null)
 				{
+					//if there is no bitmap then dump any useless info regarding it and create a new reference 
+					//for a new bitmap (if there is one)
 					bitmap.recycle();
 				}
 				InputStream stream = getContentResolver().openInputStream(data.getData());
 				bitmap = BitmapFactory.decodeStream(stream);
 				stream.close();
+				//show the image on screen
 				imageView.setImageBitmap(bitmap);
 			} 
 			catch (FileNotFoundException e) 
 			{
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			catch (IOException e)
@@ -113,6 +127,7 @@ public class NewPostActivity extends Activity {
 				e.printStackTrace();
 			}
 		}	
+		
 		if (requestCode == CAMERA_CAPTURE_IMAGE_REQUEST_CODE)
 		{
 			if (resultCode == RESULT_OK)
@@ -123,10 +138,12 @@ public class NewPostActivity extends Activity {
 			}
 			else if (resultCode == RESULT_CANCELED)
 			{
-				Toast.makeText(getApplicationContext(), "User cancelled image capture", Toast.LENGTH_SHORT).show();
+				//if user cancels then display toast
+				Toast.makeText(getApplicationContext(), "Image Capture Cancelled", Toast.LENGTH_SHORT).show();
 			}
 			else
 			{
+				//if it fails, then display toast that it has failed.
 				Toast.makeText(getApplicationContext(), "Sorry! Failed to capture image", Toast.LENGTH_SHORT).show();
 			}	
 		}
@@ -134,8 +151,6 @@ public class NewPostActivity extends Activity {
 	}
 		
 	@Override
-	
-	
 	public boolean onOptionsItemSelected (MenuItem item) 
 //	Method outlining what action will take place when a user
 //	taps one of these options
@@ -143,7 +158,7 @@ public class NewPostActivity extends Activity {
 	
 		switch (item.getItemId())
 		{
-		case R.id.new_post: //change when implementing sendmessage function
+		case R.id.new_post: 
 			sendMessage();
 			break;
 		case R.id.account:
@@ -177,6 +192,7 @@ public class NewPostActivity extends Activity {
     
 	private void captureImage()
 	{
+		//Intent method to open up the camera for app's use
 		Intent camera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 		fileUri = getOutputMediaFileUri(MEDIA_TYPE_IMAGE);
 		camera.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
@@ -187,6 +203,7 @@ public class NewPostActivity extends Activity {
 	{
 		try 
 		{
+			//show a preview of the image before accepting the final image
 			imgPreview.setVisibility(View.VISIBLE);
 			BitmapFactory.Options options = new BitmapFactory.Options();
 			options.inSampleSize = 8;
@@ -195,11 +212,10 @@ public class NewPostActivity extends Activity {
 		} 
 		catch (Exception e) 
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		}
+
+	}
 
 	@Override
 	protected void onSaveInstanceState(Bundle outState)
@@ -222,7 +238,7 @@ public class NewPostActivity extends Activity {
 	private static File getOutputMediaFile(int type)
 	{
 
-		// External sdcard location
+		// External Memory location
 		File mediaStorageDir = new File(
 				Environment
 				.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),

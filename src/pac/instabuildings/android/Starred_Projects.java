@@ -14,6 +14,7 @@ public class Starred_Projects extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
  
+		//Creates a fragment layout for the landing page of the application.
         View rootView = inflater.inflate(R.layout.fragment_starred_projects, container, false);
          
         return rootView;

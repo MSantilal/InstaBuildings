@@ -15,6 +15,7 @@ public class Trending_Area extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
  
+		//Creates a fragment layout for the landing page of the application.
         View rootView = inflater.inflate(R.layout.fragment_trending_area, container, false);
 
         return rootView;

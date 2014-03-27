@@ -39,5 +39,8 @@
     <string name="title_activity_search">SearchActivity</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_test">Test</string>
+    
+    <!-- Servlet Page -->
+	<string name="button">Show Your Projects</string>
 
 </resources>

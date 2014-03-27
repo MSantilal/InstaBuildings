@@ -31,17 +31,20 @@ import android.widget.TextView;
 public class MainActivity extends Activity 
 {
 	private DrawerLayout mDrawerLayout;
+	//A listview just to hold the navigation list items
 	private ListView mDrawerList;
 	private ActionBarDrawerToggle mDrawerToggle;
 
-	// nav drawer title
+	//Nav drawer title when opened
 	private CharSequence mDrawerTitle;
 
-	// used to store app title
+	//Used to store app title
 	private CharSequence mTitle;
 		
-	// slide menu items
+	//Slide menu items
+	//Titles for each of the navigation menu options.
 	private String[] navMenuTitles;
+	//Array which holds all the icons for each of navigation drawer items.
 	private TypedArray navMenuIcons;
 
 	private ArrayList<NavDrawerItem> navDrawerItems;
@@ -52,9 +55,8 @@ public class MainActivity extends Activity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
-		
-		
+				
+		//sets the title for the activity from the inbuilt get activity class
 		mTitle = mDrawerTitle = getTitle();
 				 
         // load slide menu items
@@ -63,40 +65,37 @@ public class MainActivity extends Activity
         // nav drawer icons from resources
         navMenuIcons = getResources().obtainTypedArray(R.array.nav_drawer_icons);
  
+        //load layouts from the XML resources
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.list_slidermenu);
- 
+        //create new ArrayList just to hold items for the nav drawer
         navDrawerItems = new ArrayList<NavDrawerItem>();
  
         // adding nav drawer items to array
         // Home
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[0], navMenuIcons.getResourceId(0, -1)));
-        // Find People
+        // Your Projects
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[1], navMenuIcons.getResourceId(1, -1)));
-        // Photos
+        // Starred Projects
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons.getResourceId(2, -1)));
-        // Communities, Will add a counter here
+        // Trending Near You
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons.getResourceId(3, -1), true, "22"));
-//        // Pages
-//        navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons.getResourceId(4, -1)));
-//        // What's hot, We  will add a counter here
-//        navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons.getResourceId(5, -1), true, "50+"));
-         
- 
-        // Recycle the typed array
+
+        // Recycle the typed array for later use in the app
         navMenuIcons.recycle();
- 
+        
+        //utilises an on click listener which can be later called on when carrying out any of the options 
         mDrawerList.setOnItemClickListener(new SlideMenuClickListener());
  
         // setting the nav drawer list adapter
-        adapter = new NavDrawerListAdapter(getApplicationContext(),
-                navDrawerItems);
+        adapter = new NavDrawerListAdapter(getApplicationContext(),navDrawerItems);
         mDrawerList.setAdapter(adapter);
  
         // enabling action bar app icon and behaving it as toggle button
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
-        getActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.actionbar_background)); //colour of actionbar
+        //colour of actionbar
+        getActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.actionbar_background)); 
         
         
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
@@ -106,13 +105,13 @@ public class MainActivity extends Activity
         ) {
             public void onDrawerClosed(View view) {
                 getActionBar().setTitle(mTitle);
-                // calling onPrepareOptionsMenu() to show action bar icons
+                // calling onPrepareOptionsMenu() to show nav bar icons
                 invalidateOptionsMenu();
             }
  
             public void onDrawerOpened(View drawerView) {
                 getActionBar().setTitle(mDrawerTitle);
-                // calling onPrepareOptionsMenu() to hide action bar icons
+                // calling onPrepareOptionsMenu() to hide nav bar icons
                 invalidateOptionsMenu();
             }
         };
@@ -129,12 +128,12 @@ public class MainActivity extends Activity
     /**
      * Slide menu item click listener
      * */
-    private class SlideMenuClickListener implements
-            ListView.OnItemClickListener {
+    private class SlideMenuClickListener implements ListView.OnItemClickListener 
+    {
         @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position,
-                long id) {
-            // display view for selected nav drawer item
+        public void onItemClick(AdapterView<?> parent, View view, int position,long id) 
+        {
+            // display view for selected nav drawer item fragment
             displayView(position);
         }
 	}
@@ -144,17 +143,24 @@ public class MainActivity extends Activity
 	{
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
+		//Imports the SearchView package which allows me to use the embedded search bar in the action bar.
 		SearchView searchView = (SearchView) menu.findItem(R.id.search).getActionView();
+		//Calls the searchManager to handle the searches for the application.
 		SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
 	   	if (null != searchManager)
 	    {
+	   		//Allows the app to build the necessary components to display labels,hints, suggestions etc to launch search results
+	   		//they have been presented. They also allow for extra additions like a voice button.
 	    	  searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
 	    }
 	   	
 	   	int id = searchView.getContext().getResources().getIdentifier("android:id/search_src_text",null,null);
 	    TextView textView = (TextView) searchView.findViewById(id);
+	    //Sets the hint colour for the user.
 	    textView.setHintTextColor(Color.WHITE);
+	    //Shows the search bar as an icon unless tapped on by a user
 	    searchView.setIconifiedByDefault(true);
+	    //set the hint for the user.
 	    searchView.setQueryHint("Search InstaBuildings");
 	    
 	    return super.onCreateOptionsMenu(menu);
